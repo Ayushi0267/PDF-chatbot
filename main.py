@@ -4,6 +4,7 @@ import io
 from chat import chat_with_gemini  
 from summary import summarize_text  
 
+# Make sure this is the first Streamlit command in the entire script
 st.set_page_config(page_title="PDF Chatbot & Summarizer", layout="wide")
 
 def handle_pdf_upload(file):
@@ -55,8 +56,6 @@ def handle_chat(question):
         st.error(f"Error: {e}")
 
 # Streamlit UI
-st.set_page_config(page_title="PDF Chatbot & Summarizer", layout="wide")
-
 st.title("📄 PDF Summarizer & Chatbot")
 
 # PDF upload
@@ -68,7 +67,7 @@ if uploaded_file:
 
 # Chatbot interaction
 st.subheader("Chat with Gemini AI:")
-question = st.text_input("Ask a question about the PDF:")
+question = st.text_input("Ask a question about the PDFs:")
 if question:
     handle_chat(question)
 
